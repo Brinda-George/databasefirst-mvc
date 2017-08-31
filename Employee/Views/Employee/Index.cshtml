@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Employee.Models.EmployeeModels>
+@using Employee.Models
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Phone
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+    @foreach (EmployeeModels emp in Model)
+    {
+        <tr>
+            <td>
+                @emp.Name
+            </td>
+            <td>
+                @emp.Email
+            </td>
+            <td>
+                @emp.Phone
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { Id = emp.Id }) |
+                @Html.ActionLink("Details", "Details", new { Id = emp.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { Id = emp.Id }) |
+            </td>
+        </tr>
+    }
+</table>
